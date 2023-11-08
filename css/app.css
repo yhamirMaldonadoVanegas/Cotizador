@@ -1,0 +1,130 @@
+html{
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+body{
+    font-size: 1.6rem;   
+}
+/*GLOBAL*/
+fieldset{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+h1{
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+}
+/*UTILIDADES*/
+.font-bold{
+    font-weight: bold;
+}
+/*Estilo al container*/
+.container{
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+@media(min-width: 640px){
+    .container{
+        max-width: 640px;
+    }
+}
+@media(min-width: 768px){
+    .container{
+        max-width: 768px;
+    }
+}
+@media(min-width: 1024px){
+    .container{
+        max-width: 1024px;
+    }
+}
+@media(min-width: 1280px){
+    .container{
+        max-width: 1280px;
+    }
+}
+/*Estilo para el contenido*/
+.contenido{
+    margin-top: 6rem; 
+    padding-bottom: 4rem;
+}
+
+/*Estilo para el encabezado*/
+.header{
+    background-color: #2196f3;
+    padding: 1.2rem;
+}
+/*Dando estilo al formulario*/
+.form{
+    max-width: 51.2rem;
+    margin: 4rem auto 0;
+}
+.campo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.campo label{
+    flex-basis: 8rem;
+}
+.campo select{
+    flex: 1;
+    padding: 1.2rem;
+    border: none;
+    appearance: none;
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+}
+/*Dando estilo al legend*/
+.legend{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+.legend-tipo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.l-legend{
+    margin-right: .5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/*Estilo al boton*/
+.button-flex{
+    display: flex;
+    justify-content: center;
+    padding: 1.6rem 0;
+    height: 7.2rem;
+}
+.button-flex button{
+    background-color: #2196f3;
+    color: #ffffff;
+    border: none;
+    border-radius: 1rem;
+    padding: .8rem 8rem;
+}
+.button-flex button:hover{
+    cursor: pointer;
+    background-color: #0176d3;
+}
+.result-cotizador{
+    margin-bottom: 4rem;
+}
+/*Tipo de mensaje*/
+.error{
+    background-color: red;
+}
+.correcto{
+    background-color: green;
+}

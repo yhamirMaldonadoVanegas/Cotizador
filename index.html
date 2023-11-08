@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="contenido">
+            <header class="header">
+                <h1>COTIZA TU SEGURO DE AUTO</h1>
+            </header>
+            <form id="cotizar-seguro" class="form">
+                <div class="campo">
+                    <label for="marca" class="font-bold">MARCA:</label>
+                    <select name="marca" id="marca">
+                        <option value="">-Seleccionar</option>
+                        <option value="1">Americano</option>
+                        <option value="2">Asiatico</option>
+                        <option value="3">Europeo</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="year" class="font-bold">AÑO:</label>
+                    <select name="year" id="year"></select>
+                </div>
+                <fieldset>
+                    <legend class="legend">Tipo de Seguro</legend>
+                    <div class="legend-tipo">
+                        <div>
+                            <label class="l-legend">Básico</label>
+                            <input type="radio" name="tipo" value="basico" checked>
+                        </div>
+                        <div>
+                            <label class="l-legend">Completo</label>
+                            <input type="radio" name="tipo" value="completo">
+                        </div>
+                    </div>
+                </fieldset>
+                <div id="resultado" class="result-cotizador">
+
+                </div>
+                <div class="button-flex">
+                    <button type="submit" class="font-bold">
+                        Cotizar Seguro
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
