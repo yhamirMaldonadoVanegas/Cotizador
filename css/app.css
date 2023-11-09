@@ -7,7 +7,8 @@ html{
     box-sizing: inherit;
 }
 body{
-    font-size: 1.6rem;   
+    font-size: 1.6rem;  
+    line-height: 1.5; 
 }
 /*GLOBAL*/
 fieldset{
@@ -18,12 +19,19 @@ fieldset{
 h1{
     margin: 0;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #ffffff;
+}
+p{
+    margin: 0;
+    text-align: center;
 }
 /*UTILIDADES*/
 .font-bold{
     font-weight: bold;
+}
+.font-normal{
+    font-weight: normal;
 }
 /*Estilo al container*/
 .container{
@@ -139,4 +147,75 @@ h1{
     margin-bottom: 2rem;
     text-align: center;
     color: #00af00;
+}
+/*Estilo al spinner*/
+.spinner-config{
+    display: none;
+}
+/*Spinner*/
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .spinner > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  }
+  
+  .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+  }
+  
+  .spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+  }
+  
+  .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+  }
+  
+  @-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+    20% { -webkit-transform: scaleY(1.0) }
+  }
+  
+  @keyframes sk-stretchdelay {
+    0%, 40%, 100% { 
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }  20% { 
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
+
+/*Estilo para el resultado*/
+.div-resultado{
+    margin-top: 4rem;
+    border: 1px solid #205f90;
+    padding-bottom: 2rem;
+}
+.div-header{
+    background-color: #205f90;
+    padding: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }

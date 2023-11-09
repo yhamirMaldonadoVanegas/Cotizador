@@ -4,6 +4,48 @@ function Seguro(marca,year,tipo){
     this.year = year; 
     this.tipo = tipo;
 }
+// Creando el prototype para generar el total 
+Seguro.prototype.cotizarSeguro = function(){
+    /* DATOS
+        1. Americano 1.15
+        2. Asiatico 1.05
+        3. Europeo 1.35
+    */
+   //Definir una cantidad base 
+   const cantidadBase = 2000; 
+   let cantidad; //cantidad a variar 
+   //Evaluar la marca 
+   switch(this.marca){
+        case "1": 
+            cantidad = cantidadBase*1.15;
+            break; 
+        case "2": 
+            cantidad = cantidadBase*1.05; 
+            break; 
+        case "3": 
+            cantidad = cantidadBase*1.35; 
+            break; 
+        default: 
+            break; 
+   }
+   //leer el año
+   //otener la diferencia del año 
+   const diferencia = new Date().getFullYear() - this.year;
+   //cada año de direncia se reduce un 3% de su valor
+   cantidad -= diferencia*cantidad*0.03;
+   /*
+    Si el seguro es básico se multiplica por un 30% más
+    Si el seguro es completo se multiplica por un 50% más
+   */
+   //el tipo de seguro 
+   if(this.tipo === "basico"){
+        cantidad*=1.30; 
+   }
+   else{
+        cantidad*=1.50; 
+   }
+   return cantidad;
+}
 //Creando la función constructora para la interfaz 
 function UI(){}
 
@@ -25,20 +67,44 @@ UI.prototype.visualizarInterfaz = ()=>{
     }
 }
 /* Prototype para mostrar el resutlado */
-UI.prototype.mostrarResultado = (seguro)=>{
+UI.prototype.mostrarResultado = (seguro,cantidad)=>{
     //Haciendo destructuring al objeto 
     const {marca,year,tipo} = seguro;
+    //para evaluar la marca
+    let marcaVar; 
+    switch(marca){
+        case "1": 
+            marcaVar = "Americano"; 
+            break;
+        case "2": 
+            marcaVar = "Asiatico";
+            break;  
+        case "3": 
+            marcaVar = "Europeo";
+            break; 
+        default: 
+            break; 
+    }
     //creamos el div 
-    const resultado = document.createElement("div"); 
+    const resultado = document.createElement("div");
+    resultado.classList.add("div-resultado"); 
     resultado.innerHTML = `
-        <p>TU RESUMEN</p>
-        <p>Marca: ${marca}</p>
-        <p>Año: ${year}</p>
-        <p>Tipo: ${tipo}</p>
+        <p class="div-header">TU RESUMEN</p>
+        <p class="font-bold">Marca: <span class="font-normal">${marcaVar}</span></p>
+        <p class="font-bold">Año: <span class="font-normal">${year}</span></p>
+        <p class="font-bold">Tipo: <span class="font-normal">${tipo}</span></p>
+        <p class="font-bold">Cantidad: <span class="font-normal">$ ${cantidad}</span></p>
     `
     //insertar el resultado
     const divResultado = document.querySelector("#resultado"); 
-    divResultado.appendChild(resultado);
+    //mostrar el spinner
+    const spinner = document.querySelector("#cargando");
+    spinner.style.display = "block";
+    //controlamos el tiempo
+    setTimeout(()=>{
+        spinner.style.display = "none"; 
+        divResultado.appendChild(resultado);
+    },2000)
 }
 
 //instanciar el objeto
@@ -92,11 +158,17 @@ function cotizarSeguro(e){
     }
 
     ui.mostrarMensaje("Cotizando...","correcto");
+    //Evaluar si hay resultado previo para borrarlo
+    const resultados = document.querySelector("#resultado div");
 
+    if(resultados !==null){
+        resultados.remove();
+    }
     //instanciando el objeto seguro 
     const seguro = new Seguro(marca,year,tipo);
-
+    //una variable para almacenar la cantidad 
+    const cantidad = seguro.cotizarSeguro();
     //Utilizar el prototype que va a cotizar
-    ui.mostrarResultado(seguro);
+    ui.mostrarResultado(seguro,cantidad);
 
 }
